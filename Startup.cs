@@ -7,15 +7,25 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Mvc;
+
 
 namespace cd_c_crudelicious
 {
     public class Startup
     {
+        // ADDING THESE PER ENTITY FRAMEWORK: GETTING STARTED: STARTUP
+        public Startup (IConfiguration configuration)
+        {
+            Configuration = configuration;
+        }
         // This method gets called by the runtime. Use this method to add services to the container.
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
+        public Iconfiguration Configuration {get;}
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<DishContext>(options => options.UseMySql (Configuration["DBInfo:ConnectionString"]));
             services.AddMvc(options => options.EnableEndpointRouting = false);
         }
 
@@ -26,6 +36,7 @@ namespace cd_c_crudelicious
             {
                 app.UseDeveloperExceptionPage();
             }
+            app.UseStaticFiles();
 
             app.UseMvc();
             // app.UseRouting();
