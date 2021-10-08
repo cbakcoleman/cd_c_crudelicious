@@ -1,0 +1,36 @@
+@model cd_c_crudelicious.Models.Dish
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <title>This Dish Info</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <a href="/">Home</a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <h4>@Model.DishName</h4>
+                <h6>@Model.ChefName</h6>
+                <div class="p-3 card" style="width: 60rem;">
+                    <p>@Model.Description</p>
+                    <p>Calories: @Model.Calories</p>
+                    <p>Tastiness: @Model.Tastiness</p>
+                </div>
+                <div>
+                    <a href="/delete/@Model.DishId">DELETE</a>
+                    <a href="/edit/@Model.DishId">EDIT</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

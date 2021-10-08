@@ -1,0 +1,78 @@
+@model cd_c_crudelicious.Models.Dish
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <title>Add Recipe</title>
+</head>
+<body>
+    <div class="container">
+
+        <div class="row mt-5"> <!-- BEGIN HEADER ROW -->
+            <div class="col">
+                <h4>Add a New Dish!</h4>
+            </div>
+            <div class="col">
+                <a href="/">Home</a>
+            </div>
+        </div> <!-- END ROW -->
+
+        <div class="row"> <!-- BEGIN FORM ROW -->
+            <form asp-action="AddDish" asp-controller="home"> 
+                <div class="col m-1 card p-3">
+                    <div class="row">
+                        <div class="col">
+                            <div>
+                                <span asp-validation-for="ChefName"></span>
+                            </div>
+                            <label asp-for="ChefName"></label>
+                            <input asp-for="ChefName" class="form-control">
+
+                            <div>
+                                <span asp-validation-for="DishName"></span>
+                            </div>
+                            <label asp-for="DishName"></label>
+                            <input asp-for="DishName" class="form-control">
+
+                            <div>
+                                <span asp-validation-for="Calories"></span>
+                            </div>
+                            <label asp-for="Calories"></label>
+                            <input asp-for="Calories" class="form-control">
+                        </div>
+                        <div class="col">
+                            <div>
+                                <span asp-validation-for="Tastiness"></span>
+                            </div>
+                            <label asp-for="Tastiness"></label>
+                            <select class="form-control" asp-for="Tastiness">
+                                <option disabled selected hidden>--Select a Number</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
+                        </div>
+                        <div class="col">
+                            <div>
+                                <span asp-validation-for="Description"></span>
+                            </div>
+                            <label asp-for="Description"></label>
+                            <textarea class="form-controll" asp-for="Description" cols="30" rows="10">
+                            </textarea>
+                            <input type="submit" value="Submit">
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div> <!-- END FORM ROW -->
+
+    </div>
+</body>
+</html>

@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 
-namespace cd_c_crudelicious
+namespace cd_c_crudelicious.Models
 {
     public class DishContext : DbContext
     {
